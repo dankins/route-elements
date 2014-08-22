@@ -1,0 +1,29 @@
+<polymer-element name="demo-section2">
+    <template>
+        <route-state state="section2" url="/section2" label="Dynamic Routes">
+            <div>
+                <h1>Dynamic Routes</h1>
+                <route-state state="section2.dynamic" url="/:dynamic" label="Dynamic">
+                    <div>
+                        <h2>Section 2 - Sub 1</h2>
+                        <route-state state="section2.dynamic.add" url="/add" label="Add">
+                            Page 1 - section2.sub1.bottom.page20
+                        </route-state>
+                        <route-state state="section2.dynamic.update" url="/update" label="Update">
+                            Page 2 - section2.sub1.bottom.page21
+                        </route-state>
+                    </div>
+                </route-state>
+            </div>
+        </route-state>
+    </template>
+    <script>
+        Polymer('demo-section2',{
+            ready: function(){
+            },
+            sectionActivated: function(e){
+                console.log("ACTIVATED SECTION 2", e.detail);
+            }
+        })
+    </script>
+</polymer-element>

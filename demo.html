@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <title>Router Demo</title>
+
+  <script src="../platform/platform.js"></script>
+  <link rel="import" href="../polymer/polymer.html">
+  <link rel="import" href="route-elements.html">
+
+
+  <link rel="import" href="demo-section1.html">
+  <link rel="import" href="demo-section2.html">
+  <link rel="import" href="demo-section3.html">
+
+
+  <polymer-element name="demo-app">
+        <template>
+            <style>
+                #toc {
+                    margin-right: 20px;
+                    padding: 10px;
+                    border: 1px dotted #333;
+                }
+
+                route-toc li {
+
+                }
+            </style>
+            <route-root html5Mode="false" on-router-ready="{{log}}" on-route-changed="{{routeChange}}">
+                <div layout horizontal>
+                    <div id="toc">
+                        <route-toc></route-toc>
+                    </div>
+
+                    <div id="body" flex>
+                        <!-- SECTION 1 -->
+                        <demo-section1></demo-section1>
+                        <!-- SECTION 2 -->
+                        <demo-section2></demo-section2>
+                        <!-- SECTION 3 -->
+                        <demo-section3></demo-section3>
+                    </div>
+                </div>
+            </route-root>
+        </template>
+      <script>
+          Polymer('demo-app',{
+              log: function(e){
+                  console.log("Router initialized", e.detail);
+              },
+              routeChange: function(e){
+                  console.log("Route change", e.detail);
+              }
+          })
+      </script>
+  </polymer-element>
+</head>
+<body unresolved>
+
+  <p>An example of using <code>&lt;route-state></code>:</p>
+
+  <demo-app></demo-app>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<polymer-element name="demo-section3">
+    <template>
+        <route-state state="section3" url="/section3" on-state-active="{{sectionActivated}}" label="Events">
+            <div>
+                <h1>Events</h1>
+                    <demo-section3-sub1></demo-section3-sub1>
+            </div>
+        </route-state>
+    </template>
+    <script>
+        Polymer('demo-section3',{
+            ready: function(){
+            },
+            sectionActivated: function(e){
+                console.log("ACTIVATED SECTION 3", e.detail);
+            }
+        })
+    </script>
+</polymer-element>
+
+<polymer-element name="demo-section3-sub1" noscript>
+    <template>
+        <route-state state="section3.sub1" url="/sub1" label="Shadow Root">
+            <div>
+                <h1>Shadow Root</h1>
+            </div>
+        </route-state>
+    </template>
+</polymer-element>

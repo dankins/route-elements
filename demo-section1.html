@@ -1,0 +1,40 @@
+<polymer-element name="demo-section1">
+    <template>
+        <route-state state="section1" url="" label="Basics">
+            <div>
+                <h1>Basics</h1>
+                <route-state state="section1.sub1" url="/sub1" label="Sub 1">
+                    <div>
+                        <h2>Sub Section - 1</h2>
+                        <route-state state="section1.sub1.page1" url="/page1" label="Page 1">
+                            Page 1 - section1.sub1.bottom.page1
+                        </route-state>
+                        <route-state state="section1.sub1.page2" url="/page2" label="Page 2">
+                            Page 2 - section1.sub1.bottom.page2
+                        </route-state>
+                    </div>
+                </route-state>
+                <route-state state="section1.page3" url="/page3" label="Page 3">
+                    <div>
+                        <h2>Page 3</h2>
+                    </div>
+                </route-state>
+                <route-state state="section1.page4" url="/sub3" label="Page 4">
+                    <div>
+                        <h2>Page 4</h2>
+                    </div>
+                </route-state>
+            </div>
+
+        </route-state>
+    </template>
+    <script>
+        Polymer('demo-section1',{
+            ready: function(){
+            },
+            sectionActivated: function(e){
+                console.log("ACTIVATED SECTION 2", e.detail);
+            }
+        })
+    </script>
+</polymer-element>
